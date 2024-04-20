@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^9.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "3.2.5",
+    "typescript-eslint": "^7.7.0"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "format": "prettier . --write",
+    "web": "cd web && yarn dev",
+    "cms": "cd cms && yarn dev",
+    "dev": "(yarn cms) & (yarn web)",
+    "open:web": "open http://localhost:3000",
+    "open:cms": "open http://localhost:3001",
+    "open:both": "(yarn open:cms) && (yarn open:web)"
+  },
+  "dependencies": {
+    "@eslint/create-config": "^1.0.2",
+    "commitlint": "^19.2.2",
+    "typescript": "^5.4.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
