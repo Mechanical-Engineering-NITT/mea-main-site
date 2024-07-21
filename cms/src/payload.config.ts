@@ -7,6 +7,10 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 
 import Users from "./collections/Users";
+import Books from "./collections/Book";
+import Media from "./collections/Media";
+import QuestionPapers from "./collections/QuestionPapers";
+import Miscellaneous from "./collections/Miscellaneous";
 
 export default buildConfig({
   admin: {
@@ -14,7 +18,7 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users],
+  collections: [Media, Users, Books, QuestionPapers, Miscellaneous],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
@@ -23,6 +27,6 @@ export default buildConfig({
   },
   plugins: [payloadCloud()],
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+    url: 'mongodb+srv://aditya:adb%40web%40mea@cluster0.dwv8nsm.mongodb.net/mea-main-site?retryWrites=true&w=majority&appName=Cluster0',
   }),
 });
