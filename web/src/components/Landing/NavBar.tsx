@@ -28,7 +28,7 @@ const links = [
 
 const Navbar = () => {
   return (
-    <div className="fixed h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-[Montserrat] text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
+    <div className="fixed h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
       <div>
         <Image
           src={meaLogo}

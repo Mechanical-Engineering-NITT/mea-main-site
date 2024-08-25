@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         outfit: ["Outfit", "sans-serif"],
+        montesrrat: ["Montserrat", "sans-serif"],
       },
     },
   },
