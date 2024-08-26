@@ -1,5 +1,6 @@
 import express from "express";
 import payload from "payload";
+import { authenticateUser } from "./middleware";
 
 const port = 3001;
 
@@ -12,6 +13,8 @@ app.get("/", (_, res) => {
   res.redirect("/admin");
 });
 
+app.use(authenticateUser);
+
 const start = async () => {
   // Initialize Payload
   await payload.init({
@@ -21,8 +24,6 @@ const start = async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
   });
-
-  // Add your own express routes here
 
   app.listen(port, () =>
     payload.logger.info(`Server running at http://localhost:${port}`),
