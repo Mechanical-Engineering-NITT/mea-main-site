@@ -10,24 +10,24 @@ const app = express();
 
 // Redirect root to Admin panel
 app.get("/", (_, res) => {
-  res.redirect("/admin");
+	res.redirect("/admin");
 });
 
 app.use(authenticateUser);
 
 const start = async () => {
-  // Initialize Payload
-  await payload.init({
-    secret: process.env.PAYLOAD_SECRET,
-    express: app,
-    onInit: async () => {
-      payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
-    },
-  });
+	// Initialize Payload
+	await payload.init({
+		secret: process.env.PAYLOAD_SECRET,
+		express: app,
+		onInit: async () => {
+			payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+		},
+	});
 
-  app.listen(port, () =>
-    payload.logger.info(`Server running at http://localhost:${port}`),
-  );
+	app.listen(port, () =>
+		payload.logger.info(`Server running at http://localhost:${port}`),
+	);
 };
 
 start();
