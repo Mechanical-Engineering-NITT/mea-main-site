@@ -5,15 +5,15 @@ import Navbar from "@components/Landing/NavBar";
 import { getServerSession } from "next-auth";
 
 export default async function Home() {
-  const session = await getServerSession();
+	const session = await getServerSession();
 
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <Login />
-      <Logout />
-      {session?.user?.email}
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<Hero />
+			<Login />
+			<Logout />
+			{session?.user?.email}
+		</>
+	);
 }
