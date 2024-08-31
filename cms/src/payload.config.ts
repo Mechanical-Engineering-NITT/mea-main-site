@@ -6,7 +6,10 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 
-import Users from "./collections/Users";
+import { Users } from "./collections/Users";
+import { Semesters } from "./collections/Semesters";
+import { Courses } from "./collections/Courses";
+import { QuestionPapers } from "./collections/QuestionPapers";
 
 export default buildConfig({
 	admin: {
@@ -14,7 +17,7 @@ export default buildConfig({
 		bundler: webpackBundler(),
 	},
 	editor: slateEditor({}),
-	collections: [Users],
+	collections: [Users, Semesters, Courses, QuestionPapers],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
 	},
