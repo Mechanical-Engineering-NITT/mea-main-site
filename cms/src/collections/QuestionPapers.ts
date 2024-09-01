@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import { APIError } from "payload/errors";
+import { CustomRequest } from "../request";
 
 export const QuestionPapers: CollectionConfig = {
 	slug: "question-papers",
@@ -56,5 +57,12 @@ export const QuestionPapers: CollectionConfig = {
 				}
 			},
 		],
+	},
+	access: {
+		create: ({ req }) => req.user,
+		read: ({ req }: { req: CustomRequest }) =>
+			req.user || req.webClientUser,
+		update: ({ req }) => req.user,
+		delete: ({ req }) => req.user,
 	},
 };

@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { CustomRequest } from "../request";
 
 export const Semesters: CollectionConfig = {
 	slug: "semesters",
@@ -14,5 +15,12 @@ export const Semesters: CollectionConfig = {
 	],
 	admin: {
 		useAsTitle: "semester",
+	},
+	access: {
+		create: ({ req }) => req.user,
+		read: ({ req }: { req: CustomRequest }) =>
+			req.user || req.webClientUser,
+		update: ({ req }) => req.user,
+		delete: ({ req }) => req.user,
 	},
 };
