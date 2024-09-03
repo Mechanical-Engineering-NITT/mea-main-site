@@ -15,18 +15,10 @@ export const QuestionPapers: CollectionConfig = {
 	},
 	fields: [
 		{
-			name: "semester",
-			type: "relationship",
-			relationTo: ["semesters"],
-			required: true,
-			admin: {
-				allowCreate: false,
-			},
-		},
-		{
 			name: "course",
 			type: "relationship",
-			relationTo: ["courses"],
+			relationTo: "courses",
+			hasMany: false,
 			required: true,
 			admin: {
 				allowCreate: false,

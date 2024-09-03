@@ -19,7 +19,8 @@ export const Courses: CollectionConfig = {
 		{
 			name: "semester",
 			type: "relationship",
-			relationTo: ["semesters"],
+			relationTo: "semesters",
+			hasMany: false,
 			required: true,
 			admin: {
 				allowCreate: false,
