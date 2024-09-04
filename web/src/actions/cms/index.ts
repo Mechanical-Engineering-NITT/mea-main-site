@@ -14,12 +14,15 @@ export async function getSemesters() {
 	if (!user) return [];
 
 	// Fetching data from CMS
-	const response = await fetch("http://localhost:3001/api/semesters", {
-		headers: {
-			"Content-Type": "application/json",
-			Cookie: cookies().toString(),
+	const response = await fetch(
+		"http://localhost:3001/api/semesters?sort=semester",
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Cookie: cookies().toString(),
+			},
 		},
-	});
+	);
 	const resJSON = await response.json();
 
 	// Validating data fetched from CMS

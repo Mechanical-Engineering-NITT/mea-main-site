@@ -11,17 +11,15 @@ export default async function Page() {
 
 	return (
 		<div>
-			{semesters
-				.sort((a, b) => (a.semester < b.semester ? -1 : 1))
-				.map((sem, i) => {
-					return (
-						<div key={i}>
-							<Link href={`/study/${sem.semester}`}>
-								{sem.semester}
-							</Link>
-						</div>
-					);
-				})}
+			{semesters.map((sem, i) => {
+				return (
+					<div key={i}>
+						<Link href={`/study/${sem.semester}`}>
+							{sem.semester}
+						</Link>
+					</div>
+				);
+			})}
 		</div>
 	);
 }
