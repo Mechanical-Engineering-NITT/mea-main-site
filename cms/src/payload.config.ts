@@ -10,6 +10,8 @@ import { Users } from "./collections/Users";
 import { Semesters } from "./collections/Semesters";
 import { Courses } from "./collections/Courses";
 import { QuestionPapers } from "./collections/QuestionPapers";
+import { Books } from "./collections/Books";
+import { Misc } from "./collections/Misc";
 
 export default buildConfig({
 	admin: {
@@ -17,7 +19,7 @@ export default buildConfig({
 		bundler: webpackBundler(),
 	},
 	editor: slateEditor({}),
-	collections: [Users, Semesters, Courses, QuestionPapers],
+	collections: [Users, Semesters, Courses, QuestionPapers, Books, Misc],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
 	},
