@@ -27,7 +27,8 @@
 	"dependencies": {
 		"@eslint/create-config": "^1.0.2",
 		"commitlint": "^19.2.2",
-		"typescript": "^5.4.5"
+		"typescript": "^5.4.5",
+		"zod": "^3.23.8"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": "eslint --fix",
