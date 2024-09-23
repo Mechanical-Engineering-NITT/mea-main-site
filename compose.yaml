@@ -1,0 +1,38 @@
+services:
+    web:
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+            target: runner
+            args:
+                - github_url=${GITHUB_URL}
+        ports:
+            - ${WEB_APP_PORT}:3000
+        depends_on:
+            - cms
+
+    cms:
+        build:
+            context: ./cms
+            dockerfile: Dockerfile
+            target: runner
+            args:
+                - github_url=${GITHUB_URL}
+        ports:
+            - ${CMS_PORT}:3001
+        depends_on:
+            - db
+
+    db:
+        image: mongo:latest
+        ports:
+            - ${DATABASE_PORT}:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+        volumes:
+            - meaDB:/data/db
+
+volumes:
+    meaDB:
+        name: "meaDB"
