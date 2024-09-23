@@ -1,4 +1,8 @@
-import { AUTH_CLIENT_ID, AUTH_CLIENT_SECRET } from "@/utils/config";
+import {
+	AUTH_CLIENT_ID,
+	AUTH_CLIENT_SECRET,
+	REDIRECT_URI,
+} from "@/utils/config";
 import NextAuth from "next-auth";
 
 const handler = NextAuth({
@@ -21,8 +25,7 @@ const handler = NextAuth({
 				url: "https://auth.delta.nitt.edu/authorize",
 				params: {
 					client_id: AUTH_CLIENT_ID,
-					redirect_uri:
-						"http://localhost:3000/api/auth/callback/dauth",
+					redirect_uri: REDIRECT_URI,
 					response_type: "code",
 					grant_type: "authorization_code",
 					state: "happycoding",
@@ -45,8 +48,7 @@ const handler = NextAuth({
 								client_secret: AUTH_CLIENT_SECRET,
 								grant_type: "authorization_code",
 								code: context.params.code || "code",
-								redirect_uri:
-									"http://localhost:3000/api/auth/callback/dauth",
+								redirect_uri: REDIRECT_URI,
 							}),
 						},
 					);

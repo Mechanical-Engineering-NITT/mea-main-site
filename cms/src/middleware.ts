@@ -1,4 +1,5 @@
 import axios from "axios";
+import { WEB_URL } from "./config";
 
 export const authenticateUser = async (req, res, next) => {
 	try {
@@ -8,14 +9,11 @@ export const authenticateUser = async (req, res, next) => {
 			next();
 			return;
 		}
-		const sessionResponse = await axios.get(
-			`http://localhost:3000/api/auth/session`,
-			{
-				headers: {
-					Cookie: req.headers.cookie,
-				},
+		const sessionResponse = await axios.get(`${WEB_URL}/api/auth/session`, {
+			headers: {
+				Cookie: req.headers.cookie,
 			},
-		);
+		});
 		req.webClientUser = sessionResponse.data.user;
 		next();
 	} catch (error) {
