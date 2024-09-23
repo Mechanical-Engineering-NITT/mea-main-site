@@ -1,3 +1,4 @@
+import { CMS_URL } from "@/utils/config";
 import { getQuestionPapers } from "@actions/cms";
 import { getUser } from "@actions/user";
 import Link from "next/link";
@@ -18,10 +19,7 @@ export default async function Page({
 			{questionPapers.map((qp, i) => {
 				return (
 					<div key={i}>
-						<Link
-							target="_blank"
-							href={`http://localhost:3001${qp.url}`}
-						>
+						<Link target="_blank" href={`${CMS_URL}${qp.url}`}>
 							{qp.filename} {qp.year.slice(0, 4)}
 						</Link>
 					</div>

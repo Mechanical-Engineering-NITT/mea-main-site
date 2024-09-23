@@ -7,6 +7,7 @@ import {
 	QuestionPapersSchema,
 	SemestersSchema,
 } from "./schemas";
+import { CMS_URL } from "@/utils/config";
 
 export async function getSemesters() {
 	// Authorization
@@ -14,15 +15,12 @@ export async function getSemesters() {
 	if (!user) return [];
 
 	// Fetching data from CMS
-	const response = await fetch(
-		"http://localhost:3001/api/semesters?sort=semester",
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Cookie: cookies().toString(),
-			},
+	const response = await fetch(`${CMS_URL}/api/semesters?sort=semester`, {
+		headers: {
+			"Content-Type": "application/json",
+			Cookie: cookies().toString(),
 		},
-	);
+	});
 	const resJSON = await response.json();
 
 	// Validating data fetched from CMS
@@ -39,7 +37,7 @@ export async function getCourses(semester: string) {
 
 	// Fetching data from CMS
 	const response = await fetch(
-		`http://localhost:3001/api/courses?where[semester.semester][equals]=${semester}`,
+		`${CMS_URL}/api/courses?where[semester.semester][equals]=${semester}`,
 		{
 			headers: {
 				"Content-Type": "application/json",
@@ -63,7 +61,7 @@ export async function getQuestionPapers(courseCode: string) {
 
 	// Fetching data from CMS
 	const response = await fetch(
-		`http://localhost:3001/api/question-papers?where[course.code][equals]=${courseCode}`,
+		`${CMS_URL}/api/question-papers?where[course.code][equals]=${courseCode}`,
 		{
 			headers: {
 				"Content-Type": "application/json",
