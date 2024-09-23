@@ -23,7 +23,7 @@ services:
         depends_on:
             - db
         volumes:
-            - media:/media
+            - media:/app/media
 
     db:
         image: mongo:latest
@@ -38,3 +38,5 @@ services:
 volumes:
     meaDB:
         name: "meaDB"
+    media:
+        name: "media"
