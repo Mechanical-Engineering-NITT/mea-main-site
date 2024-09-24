@@ -8,6 +8,7 @@ export default function Logout() {
 			onClick={() => {
 				signOut();
 			}}
+			className=" font-montesrrat mt-28 px-5 py-2 cursor-pointer bg-red-600 text-white font-semibold rounded-md"
 		>
 			Logout
 		</div>

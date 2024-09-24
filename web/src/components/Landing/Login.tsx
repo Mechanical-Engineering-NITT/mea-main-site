@@ -8,8 +8,9 @@ export default function Login() {
 			onClick={() => {
 				signIn("dauth");
 			}}
+			className=" font-montesrrat mt-28 px-5 py-2 cursor-pointer bg-green-600 text-white font-semibold rounded-md"
 		>
-			Login
+			Login with DAuth
 		</div>
 	);
 }

@@ -1,26 +1,28 @@
 import Image from "next/image";
 import MEA from "@assets/images/Hero/mea.png";
+import Login from "./Login";
+import Logout from "./Logout";
 
-const Hero = () => {
+export default async function Hero(props: { isUser: boolean }) {
 	return (
-		<>
-			<div className="relative w-screen h-screen">
+		<div className="relative w-screen h-screen bg-cover bg-center">
+			<div className="absolute h-screen w-screen">
 				<Image
 					src={MEA}
 					alt="MEA"
-					className="absolute inset-0 w-full h-full object-cover z-0 "
+					className="h-full w-full object-cover"
 				/>
-				<div className="absolute inset-0 flex flex-col justify-center items-center text-white font-outfit text-7xl sm:text-8xl lg:text-9xl xl:text-9xl font-semibold bg-black bg-opacity-35">
-					{`MEA '24`}
-					<p className="mt-4 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl ml-16 font-normal">
-						Mechanical Engineering Association
-					</p>
-					<p className="mt-4 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
-						NIT Trichy
-					</p>
-				</div>
 			</div>
-		</>
+			<div className="absolute bg-black bg-opacity-40 text-white text-center h-screen w-screen flex flex-col justify-center items-center">
+				<span className="font-outfit text-7xl sm:text-8xl lg:text-9xl xl:text-9xl font-semibold">{`MEA '24`}</span>
+				<span className="mt-4 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
+					Mechanical Engineering Association
+				</span>
+				<span className="mt-2 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
+					NIT Trichy
+				</span>
+				{!props.isUser ? <Login /> : <Logout />}
+			</div>
+		</div>
 	);
-};
-export default Hero;
+}
