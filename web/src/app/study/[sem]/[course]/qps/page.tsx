@@ -1,7 +1,7 @@
-import { PUBLIC_CMS_URL } from "@/utils/config";
 import { getQuestionPapers } from "@actions/cms";
 import { getUser } from "@actions/user";
-import Link from "next/link";
+import Navbar from "@components/Landing/NavBar";
+import Table from "@components/QuestionPapers/Table";
 import { redirect } from "next/navigation";
 
 export default async function Page({
@@ -15,19 +15,12 @@ export default async function Page({
 	const questionPapers = await getQuestionPapers(decodeURI(params.course));
 
 	return (
-		<div className="flex flex-col">
-			{questionPapers.map((qp, i) => {
-				return (
-					<div key={i}>
-						<Link
-							target="_blank"
-							href={`${PUBLIC_CMS_URL}${qp.url}`}
-						>
-							{qp.filename} {qp.year.slice(0, 4)}
-						</Link>
-					</div>
-				);
-			})}
-		</div>
+		<>
+			<Navbar isUser={true} />
+			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col h-screen w-screen overflow-y-auto px-5">
+				<span className=" mt-20 font-outfit text-4xl font-bold mx-auto">{`${params.course}`}</span>
+				<Table questionPapers={questionPapers} />
+			</div>
+		</>
 	);
 }

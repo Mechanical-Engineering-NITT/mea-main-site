@@ -1,4 +1,5 @@
 import { getUser } from "@actions/user";
+import Navbar from "@components/Landing/NavBar";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -10,9 +11,33 @@ export default async function Page({
 	const user = await getUser();
 	if (!user) redirect("/");
 
+	const items = [
+		{
+			name: "Question Papers",
+			link: `/study/${params.sem}/${params.course}/qps`,
+		},
+	];
+
 	return (
-		<div className="flex flex-col">
-			<Link href={`/study/${params.sem}/${params.course}/qps`}>QP</Link>
-		</div>
+		<>
+			<Navbar isUser={true} />
+			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5">
+				<span className=" mt-20 font-outfit text-4xl font-bold">{`${params.course}`}</span>
+				{items.map((item, i) => {
+					return (
+						<Link
+							href={item.link}
+							className=" flex flex-row justify-between items-center font-montesrrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
+							key={i}
+						>
+							<span>{item.name}</span>
+							<span className=" bg-blue-300 text-blue-700 rounded-full px-2 text-xs my-auto py-1">
+								View
+							</span>
+						</Link>
+					);
+				})}
+			</div>
+		</>
 	);
 }
