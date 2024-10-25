@@ -19,8 +19,8 @@ const transport = nodemailer.createTransport({
 });
 
 // Redirect root to Admin panel
-app.get("/", (_, res) => {
-	res.redirect("/admin");
+app.get(`${process.env.PAYLOAD_PUBLIC_BASE_PATH}`, (_, res) => {
+	res.redirect(`${process.env.PAYLOAD_PUBLIC_BASE_PATH}/admin`);
 });
 
 app.use(authenticateUser);

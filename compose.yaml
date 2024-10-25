@@ -2,41 +2,49 @@ services:
     web:
         build:
             context: ./web
-            dockerfile: Dockerfile
             target: runner
-            args:
-                - github_url=${GITHUB_URL}
-        ports:
-            - ${WEB_APP_PORT}:3000
         depends_on:
             - cms
+        networks:
+            - mea-custom-network
 
     cms:
         build:
             context: ./cms
-            dockerfile: Dockerfile
             target: runner
-            args:
-                - github_url=${GITHUB_URL}
-        ports:
-            - ${CMS_PORT}:3001
+        environment:
+            - DATABASE_URI=mongodb://admin:${DB_PASS}@db:27017/mea?authSource=admin
         depends_on:
             - db
         volumes:
-            - media:/app/media
+            - /app/media
+        networks:
+            - mea-custom-network
+
+    # db-client:
+    #     image: mongo-express:1.0.2-20-alpine3.19
+    #     ports:
+    #         - 8081:8081
+    #     environment:
+    #         ME_CONFIG_MONGODB_URL: mongodb://admin:${DB_PASS}@db:27017/mea?authSource=admin
+    #         ME_CONFIG_BASICAUTH_USERNAME: admin
+    #         ME_CONFIG_BASICAUTH_PASSWORD: ${DB_CLIENT_PASS}
+    #         ME_CONFIG_SITE_BASEURL: /db-client/
+    #     depends_on:
+    #         - db
+    #     networks:
+    #         - mea-custom-network
 
     db:
-        image: mongo:latest
-        ports:
-            - ${DATABASE_PORT}:27017
+        image: mongo:8.0.1
         environment:
             MONGO_INITDB_ROOT_USERNAME: admin
             MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
         volumes:
-            - meaDB:/data/db
+            - /data/db
+        networks:
+            - mea-custom-network
 
-volumes:
-    meaDB:
-        name: "meaDB"
-    media:
-        name: "media"
+networks:
+    mea-custom-network:
+        external: true
