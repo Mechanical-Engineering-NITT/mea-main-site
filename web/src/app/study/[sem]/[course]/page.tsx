@@ -16,6 +16,14 @@ export default async function Page({
 			name: "Question Papers",
 			link: `/study/${params.sem}/${params.course}/qps`,
 		},
+		{
+			name: "Books",
+			link: `/study/${params.sem}/${params.course}/books`,
+		},
+		{
+			name: "Miscellaneous",
+			link: `/study/${params.sem}/${params.course}/misc`,
+		},
 	];
 
 	return (
