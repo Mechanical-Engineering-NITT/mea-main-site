@@ -21,6 +21,7 @@
 			"@assets/*": ["./src/assets/*"],
 			"@components/*": ["./src/components/*"],
 			"@actions/*": ["./src/actions/*"],
+			"@utils/*": ["./src/utils/*"],
 			"@/*": ["./src/*"]
 		}
 	},

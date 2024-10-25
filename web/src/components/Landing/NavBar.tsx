@@ -1,54 +1,58 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
 import meaLogo from "@assets/images/Navbar/meaLogo.png";
 import clgLogo from "@assets/images/Navbar/clgLogo.png";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const links = [
 	{
-		name: "Synergy",
-		href: "/",
-	},
-	{
-		name: "Projects",
-		href: "/",
-	},
-	{
 		name: "Study Materials",
-		href: "/",
-	},
-	{
-		name: "Good to Know",
-		href: "/",
-	},
-	{
-		name: "FAQs",
-		href: "/",
+		href: "/study",
+		protected: true,
 	},
 ];
 
-const Navbar = () => {
+export default function Navbar({ isUser }: { isUser: boolean }) {
+	const navigate = useRouter();
+
 	return (
 		<div className="fixed h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
-			<div>
+			<Link href={"/"}>
 				<Image
 					src={meaLogo}
 					alt="MEA LOGO"
 					className="size-16 lg:size-20 xl:size-20"
 				/>
-			</div>
+			</Link>
 			{links.map((link, i) => (
 				<div key={i}>
-					<Link href={link.href}>{link.name}</Link>
+					<div
+						onClick={() => {
+							if (link.protected && !isUser) {
+								toast.error(
+									"Please login to access this section",
+								);
+							} else {
+								console.log(link.href);
+								navigate.push(link.href);
+							}
+						}}
+						className="cursor-pointer"
+					>
+						{link.name}
+					</div>
 				</div>
 			))}
-			<div>
+			<Link href={"/"}>
 				<Image
 					src={clgLogo}
 					alt="NITT LOGO"
 					className="size-16 lg:size-20 xl:size-20"
 				/>
-			</div>
+			</Link>
 		</div>
 	);
-};
-export default Navbar;
+}

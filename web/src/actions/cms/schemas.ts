@@ -23,3 +23,17 @@ export const QuestionPapersSchema = z.array(
 		filename: z.string(),
 	}),
 );
+
+export const BooksSchema = z.array(
+	z.object({
+		name: z.string(),
+		link: z.string(),
+	}),
+);
+
+export const MiscellaneousSchema = z.array(
+	z.object({
+		description: z.string(),
+		link: z.string(),
+	}),
+);
