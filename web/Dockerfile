@@ -5,6 +5,7 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat
 COPY ./ ./
 RUN yarn
+RUN yarn add sharp
 RUN yarn build
 
 FROM base AS runner

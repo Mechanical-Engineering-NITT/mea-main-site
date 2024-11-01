@@ -9,7 +9,7 @@ export const QuestionPapers: CollectionConfig = {
 		plural: "Question Papers",
 	},
 	upload: {
-		staticURL: "/media/questionPapers",
+		staticURL: `${process.env.PAYLOAD_PUBLIC_BASE_PATH}/media/questionPapers`,
 		staticDir: "../media/questionPapers",
 		mimeTypes: ["application/pdf"],
 	},

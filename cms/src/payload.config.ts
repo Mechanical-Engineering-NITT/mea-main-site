@@ -34,4 +34,9 @@ export default buildConfig({
 		admin: `${process.env.PAYLOAD_PUBLIC_BASE_PATH}/admin`,
 		api: `${process.env.PAYLOAD_PUBLIC_BASE_PATH}/api`,
 	},
+	upload: {
+		limits: {
+			fileSize: 5000000, // 5MB, written in bytes
+		},
+	},
 });

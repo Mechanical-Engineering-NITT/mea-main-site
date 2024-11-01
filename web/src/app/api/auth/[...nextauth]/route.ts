@@ -1,19 +1,20 @@
 import {
 	AUTH_CLIENT_ID,
 	AUTH_CLIENT_SECRET,
+	BASE_PATH,
 	REDIRECT_URI,
 } from "@/utils/config";
 import NextAuth from "next-auth";
 
 const handler = NextAuth({
 	pages: {
-		signIn: "/",
-		signOut: "/",
-		error: "/",
+		signIn: BASE_PATH !== "" ? BASE_PATH : "/",
+		signOut: BASE_PATH !== "" ? BASE_PATH : "/",
+		error: BASE_PATH !== "" ? BASE_PATH : "/",
 	},
 	callbacks: {
 		async redirect({ baseUrl }) {
-			return baseUrl;
+			return baseUrl + BASE_PATH;
 		},
 	},
 	providers: [

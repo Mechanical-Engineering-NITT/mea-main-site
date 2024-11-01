@@ -1,50 +1,52 @@
 services:
-    web:
+    mea-web:
         build:
             context: ./web
             target: runner
         depends_on:
-            - cms
+            - mea-cms
         networks:
             - mea-custom-network
 
-    cms:
+    mea-cms:
         build:
             context: ./cms
             target: runner
         environment:
-            - DATABASE_URI=mongodb://admin:${DB_PASS}@db:27017/mea?authSource=admin
+            - DATABASE_URI=mongodb://admin:${DB_PASS}@mea-db:27017/mea?authSource=admin
         depends_on:
-            - db
+            - mea-db
         volumes:
-            - /app/media
+            - mea-cms-media:/app/media
         networks:
             - mea-custom-network
 
     # db-client:
     #     image: mongo-express:1.0.2-20-alpine3.19
-    #     ports:
-    #         - 8081:8081
     #     environment:
-    #         ME_CONFIG_MONGODB_URL: mongodb://admin:${DB_PASS}@db:27017/mea?authSource=admin
+    #         ME_CONFIG_MONGODB_URL: mongodb://admin:${DB_PASS}@mea-db:27017/mea?authSource=admin
     #         ME_CONFIG_BASICAUTH_USERNAME: admin
     #         ME_CONFIG_BASICAUTH_PASSWORD: ${DB_CLIENT_PASS}
     #         ME_CONFIG_SITE_BASEURL: /db-client/
     #     depends_on:
-    #         - db
+    #         - mea-db
     #     networks:
     #         - mea-custom-network
 
-    db:
+    mea-db:
         image: mongo:8.0.1
         environment:
             MONGO_INITDB_ROOT_USERNAME: admin
             MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
         volumes:
-            - /data/db
+            - mea-db-data:/data/db
         networks:
             - mea-custom-network
 
 networks:
     mea-custom-network:
         external: true
+
+volumes:
+    mea-cms-media:
+    mea-db-data:
