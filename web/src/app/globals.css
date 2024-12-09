@@ -3,3 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#highlightSwiper {
+	--swiper-pagination-color: #3c97ab;
+	--swiper-pagination-bullet-inactive-color: #ffffff;
+	--swiper-pagination-bullet-inactive-opacity: 0.8;
+}
+
+.swiper-button-prev {
+	--swiper-navigation-color: white;
+}
+
+.swiper-button-next {
+	--swiper-navigation-color: white;
+}

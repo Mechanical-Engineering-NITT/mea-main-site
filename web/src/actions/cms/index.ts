@@ -3,6 +3,7 @@
 import { getUser } from "@actions/user";
 import { cookies } from "next/headers";
 import {
+	AboutSchema,
 	BooksSchema,
 	CoursesSchema,
 	MiscellaneousSchema,
@@ -128,4 +129,16 @@ export async function getMiscellaneous(courseCode: string) {
 
 	// Returning data if valid
 	return miscellaneous ?? [];
+}
+
+export async function getAbout() {
+	// Fetching data from CMS
+	const response = await fetch(`${CMS_URL}/api/globals/about`);
+	const resJSON = await response.json();
+
+	// Validating data fetched from CMS
+	const { data } = AboutSchema.safeParse(resJSON);
+
+	// Returning data if valid
+	return data?.about ?? "";
 }

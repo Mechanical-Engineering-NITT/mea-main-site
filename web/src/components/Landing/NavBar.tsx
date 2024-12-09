@@ -19,7 +19,7 @@ export default function Navbar({ isUser }: { isUser: boolean }) {
 	const navigate = useRouter();
 
 	return (
-		<div className="fixed h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
+		<div className="absolute h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
 			<Link href={"/"}>
 				<Image
 					src={meaLogo}
@@ -36,7 +36,6 @@ export default function Navbar({ isUser }: { isUser: boolean }) {
 									"Please login to access this section",
 								);
 							} else {
-								console.log(link.href);
 								navigate.push(link.href);
 							}
 						}}

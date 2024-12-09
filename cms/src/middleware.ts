@@ -3,9 +3,8 @@ import { WEB_URL } from "./config";
 
 export const authenticateUser = async (req, res, next) => {
 	try {
-		const cookie = req.headers.cookie as string;
-		const isAuthToken = cookie.includes("next-auth.session-token");
-		if (!isAuthToken) {
+		const cookie = (req.headers.cookie as string) || "";
+		if (!cookie.includes("next-auth.session-token")) {
 			next();
 			return;
 		}

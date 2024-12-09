@@ -12,6 +12,7 @@ import { Courses } from "./collections/Courses";
 import { QuestionPapers } from "./collections/QuestionPapers";
 import { Books } from "./collections/Books";
 import { Misc } from "./collections/Misc";
+import { About } from "./globals/About";
 
 export default buildConfig({
 	admin: {
@@ -20,6 +21,7 @@ export default buildConfig({
 	},
 	editor: slateEditor({}),
 	collections: [Users, Semesters, Courses, QuestionPapers, Books, Misc],
+	globals: [About],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
 	},

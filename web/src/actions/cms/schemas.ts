@@ -37,3 +37,7 @@ export const MiscellaneousSchema = z.array(
 		link: z.string(),
 	}),
 );
+
+export const AboutSchema = z.object({
+	about: z.string(),
+});
