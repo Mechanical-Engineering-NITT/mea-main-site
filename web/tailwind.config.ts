@@ -12,6 +12,9 @@ const config: Config = {
 				outfit: ["Outfit", "sans-serif"],
 				montesrrat: ["Montserrat", "sans-serif"],
 			},
+			colors: {
+				customOrange: "#F26101",
+			},
 		},
 	},
 	plugins: [],
