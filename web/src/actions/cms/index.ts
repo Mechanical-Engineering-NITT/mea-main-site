@@ -6,6 +6,7 @@ import {
 	AboutSchema,
 	BooksSchema,
 	CoursesSchema,
+	HighlightsSchema,
 	MiscellaneousSchema,
 	QuestionPapersSchema,
 	SemestersSchema,
@@ -141,4 +142,16 @@ export async function getAbout() {
 
 	// Returning data if valid
 	return data?.about ?? "";
+}
+
+export async function getHighlights() {
+	// Fetching data from CMS
+	const response = await fetch(`${CMS_URL}/api/highlights`);
+	const resJSON = await response.json();
+
+	// Validating data fetched from CMS
+	const { data } = HighlightsSchema.safeParse(resJSON.docs);
+
+	// Returning data if valid
+	return data ?? [];
 }
