@@ -9,6 +9,11 @@ const nextConfig = {
 				port: "3001",
 				pathname: "/**",
 			},
+			{
+				protocol: "https",
+				hostname: "mea.nitt.edu",
+				pathname: "/**",
+			},
 		],
 	},
 };

@@ -46,7 +46,7 @@ export default function Table({
 				id: "url",
 				cell: (info) => (
 					<a
-						href={`${process.env.NEXT_PUBLIC_CMS_URL}${info.getValue()}`}
+						href={`${info.getValue()}`}
 						target="_blank"
 						className=" text-blue-600 font-medium flex flex-row gap-1 items-center"
 					>

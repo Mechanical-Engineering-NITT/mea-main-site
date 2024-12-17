@@ -50,4 +50,5 @@ export default buildConfig({
 			fileSize: 5000000, // 5MB, written in bytes
 		},
 	},
+	serverURL: process.env.PAYLOAD_URL,
 });

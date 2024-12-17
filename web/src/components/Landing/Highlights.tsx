@@ -49,7 +49,7 @@ export default function Highlights({
 							className=""
 						>
 							<Image
-								src={`${process.env.NEXT_PUBLIC_CMS_URL}${slide.url}`}
+								src={`${slide.url}`}
 								fill={true}
 								alt="Highlight"
 								className=" h-full w-full object-cover select-none"
