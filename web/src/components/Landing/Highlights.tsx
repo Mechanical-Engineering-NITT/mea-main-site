@@ -1,7 +1,6 @@
 "use client";
 
 import Blush from "@assets/images/Common/blush.png";
-import MEA from "@assets/images/Hero/mea.png";
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,91 +8,57 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { z } from "zod";
+import { HighlightsSchema } from "@actions/cms/schemas";
 
-const slides = [
-	{
-		src: MEA,
-		content:
-			"Content 1: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-	{
-		src: MEA,
-		content:
-			"Content 2: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-	{
-		src: MEA,
-		content:
-			"Content 3: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-	{
-		src: MEA,
-		content:
-			"Content 4: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-	{
-		src: MEA,
-		content:
-			"Content 5: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-	{
-		src: MEA,
-		content:
-			"Content 7: Ea quis blanditiis aut labore dolores qui quam pariatur est nostrum laudantium ut praesentium reiciendis non voluptas commodi. Et totam dolor ut neque tenetur non error sapiente et natus praesentium in magnam quod ut illum consequatur! Ut neque eaque aut sequi natus qui labore sunt sed deserunt voluptate et ipsum vero quo tenetur quae. Aut quidem magnam est corporis velit est odio laudantium a aliquam autem.",
-	},
-];
-
-export default function Highlights() {
+export default function Highlights({
+	content,
+}: {
+	content: z.infer<typeof HighlightsSchema>;
+}) {
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	useEffect(() => {
-		console.log("Active Index: ", activeIndex);
-	}, [activeIndex]);
-
 	return (
-		<div className=" relative w-screen box-border overflow-x-hidden overflow-y-hidden h-screen flex flex-col items-center sm:justify-center">
-			<div className="text-customOrange font-outfit font-bold text-7xl">
+		<div className="h-screen w-screen flex flex-col relative overflow-x-hidden">
+			<span className="text-customOrange font-outfit font-bold text-7xl w-full text-center mt-10">
 				Highlights
-			</div>
-			<div className="flex flex-col box-border h-full sm:flex-row w-[90%] sm:w-[80%]">
-				<div className=" h-1/2 sm:h-auto box-border sm:w-1/2 border-b-4 sm:border-r-4 border-[#3C97AB]">
-					<Swiper
-						spaceBetween={30}
-						centeredSlides={true}
-						autoplay={{
-							delay: 5000,
-							disableOnInteraction: false,
-						}}
-						pagination={{
-							clickable: true,
-						}}
-						loop={true}
-						navigation={true}
-						modules={[Autoplay, Pagination, Navigation]}
-						onSlideChange={(swiper) =>
-							setActiveIndex(swiper.realIndex)
-						}
-						className="w-full h-full"
-						id={"highlightSwiper"}
-					>
-						{slides.map((slide, index) => (
-							<SwiperSlide key={index} id="highlightSlide">
-								<div className="h-full w-full flex flex-col">
-									<Image
-										src={slide.src}
-										alt="Highlight"
-										className="w-full aspect-square object-cover select-none my-auto"
-									/>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</div>
-				<div className="h-1/2 py-5 box-border sm:h-auto sm:w-1/2 sm:p-5 flex justify-center sm:items-center font-montesrrat font-medium text-xl text-justify">
-					<div className="overflow-auto">
-						{slides[activeIndex].content}
-					</div>
+			</span>
+			<div className="flex flex-col sm:flex-row p-10 gap-5 w-full h-full">
+				<Swiper
+					spaceBetween={30}
+					centeredSlides={true}
+					autoplay={{
+						delay: 5000,
+						disableOnInteraction: false,
+					}}
+					pagination={{
+						clickable: true,
+					}}
+					loop={true}
+					navigation={true}
+					modules={[Autoplay, Pagination, Navigation]}
+					onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+					className="h-1/2 w-full sm:w-1/2 sm:my-auto"
+					id={"highlightSwiper"}
+				>
+					{content.map((slide) => (
+						<SwiperSlide
+							key={slide.id}
+							id="highlightSlide"
+							className=""
+						>
+							<Image
+								src={`${process.env.NEXT_PUBLIC_CMS_URL}${slide.url}`}
+								fill={true}
+								alt="Highlight"
+								className=" h-full w-full object-cover select-none"
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
+				<div className="w-full sm:w-1/2 sm:my-auto border-t-4 sm:border-t-0 sm:border-l-4 border-customBlue pt-5 sm:pl-5 sm:py-5 overflow-y-auto font-montesrrat">
+					{content[activeIndex]?.description}
 				</div>
 			</div>
 			<Image

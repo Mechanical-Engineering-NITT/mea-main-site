@@ -41,3 +41,11 @@ export const MiscellaneousSchema = z.array(
 export const AboutSchema = z.object({
 	about: z.string(),
 });
+
+export const HighlightsSchema = z.array(
+	z.object({
+		id: z.string(),
+		description: z.string(),
+		url: z.string(),
+	}),
+);
