@@ -1,9 +1,4 @@
-import {
-	AUTH_CLIENT_ID,
-	AUTH_CLIENT_SECRET,
-	BASE_PATH,
-	REDIRECT_URI,
-} from "@/utils/config";
+import { AUTH_CLIENT_ID, AUTH_CLIENT_SECRET, BASE_PATH } from "@/utils/config";
 import NextAuth from "next-auth";
 
 const handler = NextAuth({
@@ -13,10 +8,21 @@ const handler = NextAuth({
 		error: BASE_PATH !== "" ? BASE_PATH : "/",
 	},
 	callbacks: {
-		async redirect({ baseUrl }) {
-			return baseUrl + BASE_PATH;
+		async redirect({ url, baseUrl }) {
+			try {
+				const redirectUrl = new URL(url, baseUrl);
+
+				if (redirectUrl.searchParams.has("callbackUrl")) {
+					return redirectUrl.searchParams.get("callbackUrl")!;
+				}
+
+				return baseUrl + BASE_PATH;
+			} catch {
+				return baseUrl + BASE_PATH;
+			}
 		},
 	},
+
 	providers: [
 		{
 			id: "dauth",
@@ -26,7 +32,6 @@ const handler = NextAuth({
 				url: "https://auth.delta.nitt.edu/authorize",
 				params: {
 					client_id: AUTH_CLIENT_ID,
-					redirect_uri: REDIRECT_URI,
 					response_type: "code",
 					grant_type: "authorization_code",
 					state: "happycoding",
@@ -49,7 +54,7 @@ const handler = NextAuth({
 								client_secret: AUTH_CLIENT_SECRET,
 								grant_type: "authorization_code",
 								code: context.params.code || "code",
-								redirect_uri: REDIRECT_URI,
+								redirect_uri: `${context.provider.callbackUrl}`,
 							}),
 						},
 					);

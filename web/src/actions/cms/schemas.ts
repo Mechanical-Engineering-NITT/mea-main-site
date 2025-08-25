@@ -49,3 +49,11 @@ export const HighlightsSchema = z.array(
 		url: z.string(),
 	}),
 );
+
+export const InitiativesSchema = z.array(
+	z.object({
+		id: z.string(),
+		title: z.string(),
+		description: z.string(),
+	}),
+);

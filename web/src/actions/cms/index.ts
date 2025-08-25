@@ -10,6 +10,7 @@ import {
 	MiscellaneousSchema,
 	QuestionPapersSchema,
 	SemestersSchema,
+	InitiativesSchema,
 } from "./schemas";
 import { CMS_URL } from "@/utils/config";
 
@@ -151,6 +152,16 @@ export async function getHighlights() {
 
 	// Validating data fetched from CMS
 	const { data } = HighlightsSchema.safeParse(resJSON.docs);
+
+	// Returning data if valid
+	return data ?? [];
+}
+
+export async function getInitiatives() {
+	const response = await fetch(`${CMS_URL}/api/initiatives`);
+	const resJSON = await response.json();
+
+	const { data } = InitiativesSchema.safeParse(resJSON.docs);
 
 	// Returning data if valid
 	return data ?? [];
