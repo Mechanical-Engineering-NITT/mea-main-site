@@ -9,7 +9,7 @@ This is the CMS (Content Management System) for the official MEA website!
 2. Navigate to cms folder using:
 
 ```bash
-cd cms
+cd cms something
 ```
 
 3. Install all dependencies using:
