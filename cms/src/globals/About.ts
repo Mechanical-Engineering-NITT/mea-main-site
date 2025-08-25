@@ -6,7 +6,6 @@ export const About: GlobalConfig = {
 		{
 			name: "about",
 			type: "textarea",
-			maxLength: 500,
 			defaultValue: "Edit this text at the CMS website :)",
 		},
 	],
