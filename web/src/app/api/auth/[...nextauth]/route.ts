@@ -16,9 +16,9 @@ const handler = NextAuth({
 					return redirectUrl.searchParams.get("callbackUrl")!;
 				}
 
-				return baseUrl + BASE_PATH;
+				return url + BASE_PATH;
 			} catch {
-				return baseUrl + BASE_PATH;
+				return url + BASE_PATH;
 			}
 		},
 	},

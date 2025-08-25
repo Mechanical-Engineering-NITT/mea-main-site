@@ -14,6 +14,7 @@ import { Books } from "./collections/Books";
 import { Misc } from "./collections/Misc";
 import { About } from "./globals/About";
 import { Highlights } from "./collections/Highlights";
+import { Initiatives } from "./collections/Initiatives";
 
 export default buildConfig({
 	admin: {
@@ -29,6 +30,7 @@ export default buildConfig({
 		Books,
 		Misc,
 		Highlights,
+		Initiatives,
 	],
 	globals: [About],
 	typescript: {
