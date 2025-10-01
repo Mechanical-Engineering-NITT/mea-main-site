@@ -13,6 +13,11 @@ const links = [
 		href: "/study",
 		protected: true,
 	},
+	{
+		name: "Projects",
+		href: "/projects",
+		protected: false,
+	},
 ];
 
 export default function Navbar({ isUser }: { isUser: boolean }) {
