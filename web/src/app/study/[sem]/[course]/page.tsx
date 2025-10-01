@@ -32,8 +32,8 @@ export default async function Page({
 	return (
 		<>
 			<Navbar isUser={true} />
-			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5">
-				<span className=" mt-20 font-outfit text-4xl font-bold">{`${params.course}`}</span>
+			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5 py-10">
+				<span className=" mt-16 font-outfit text-4xl font-bold">{`${params.course}`}</span>
 				{items.map((item, i) => {
 					return (
 						<Link

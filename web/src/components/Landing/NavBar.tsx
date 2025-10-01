@@ -13,13 +13,18 @@ const links = [
 		href: "/study",
 		protected: true,
 	},
+	{
+		name: "Projects",
+		href: "/projects",
+		protected: false,
+	},
 ];
 
 export default function Navbar({ isUser }: { isUser: boolean }) {
 	const navigate = useRouter();
 
 	return (
-		<div className="absolute h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap">
+		<div className="absolute h-fit w-screen backdrop-blur flex justify-around px-1 sm:px-2 lg:px-3 items-center top-0 z-50 font-montesrrat text-base sm:text-lg lg:text-xl xl:text-2xl text-white font-medium flex-wrap shadow-md">
 			<Link href={"/"}>
 				<Image
 					src={meaLogo}
@@ -39,7 +44,7 @@ export default function Navbar({ isUser }: { isUser: boolean }) {
 								navigate.push(link.href);
 							}
 						}}
-						className="cursor-pointer"
+						className="cursor-pointer hover:underline transition-all duration-150 ease-in-out"
 					>
 						{link.name}
 					</div>
