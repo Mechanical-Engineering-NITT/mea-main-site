@@ -12,13 +12,13 @@ export default async function Page() {
 		<>
 			<Navbar isUser={true} />
 			<div className="text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5 py-10">
-				<span className="font-mono text-4xl font-bold mb-5 mt-16 underline pointer-events-none">
+				<span className="text-4xl font-bold mb-5 mt-16 underline pointer-events-none font-montesrrat">
 					PROJECTS
 				</span>
-				<span className="text-xl md:text-2xl text-center text-nowrap font-semibold mb-5">
+				<span className="text-xl md:text-2xl text-center text-nowrap font-semibold mb-5 font-montesrrat">
 					Professor Research Interests
 				</span>
-				<div className="w-full overflow-hidden md:mx-auto xl:max-w-[75%]">
+				<div className="w-full overflow-hidden md:mx-auto xl:max-w-[75%] font-montesrrat">
 					<div
 						className="grid justify-items-center overflow-x-auto xl:overflow-hidden w-full  px-5 py-5"
 						style={{
