@@ -1,72 +1,72 @@
 import Navbar from "@components/Landing/NavBar";
-import { MailIcon } from "lucide-react";
 
 export default async function Page() {
+	const entries = [
+		{
+			name: "",
+			email: "",
+			content: "",
+		},
+	];
 	return (
 		<>
 			<Navbar isUser={true} />
 			<div className="text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5 py-10">
-				<span className="font-mono text-4xl font-bold mb-5 mt-16 underline">
+				<span className="font-mono text-4xl font-bold mb-5 mt-16 underline pointer-events-none">
 					PROJECTS
 				</span>
-				<span className="text-2xl font-semibold mb-5">
+				<span className="text-xl md:text-2xl text-center text-nowrap font-semibold mb-5">
 					Professor Research Interests
 				</span>
-				<div className="flex flex-row gap-4 mb-2 items-center justify-center border px-5 h-[50px] py-6 rounded-lg shadow-xl">
-					<span className="text-xl font-sans w-[300px] text-center text-white">
-						Professor
-					</span>
-					<span className="text-xl font-sans w-[300px] text-center text-white">
-						Email ID
-					</span>
-					<span className="text-xl font-sans w-[300px] text-center text-white">
-						Research Interests
-					</span>
-				</div>
-				<div className="grid grid-cols-1 gap-1">
-					<div className="flex flex-row gap-4 mb-3 items-start justify-center py-2 border px-5 rounded-lg hover:scale-[1.02] hover:shadow-2xl transition-all duration-200 ease-in-out">
-						<div className="text-lg font-semibold w-[300px] text-center p-2 h-full">
-							<span className="hover:underline hover:opacity-80 cursor-pointer">
-								abc xyz
-							</span>
+				<div className="w-full overflow-hidden md:mx-auto xl:max-w-[75%]">
+					<div
+						className="grid justify-items-center overflow-x-auto xl:overflow-hidden w-full  px-5 py-5"
+						style={{
+							gridTemplateColumns:
+								"repeat(3, minmax(300px, 1fr))",
+						}}
+					>
+						<div className="flex flex-row justify-center col-span-3 w-full pointer-events-none">
+							<div className="bg-gray-200 p-4 rounded-l-lg w-full h-[50px] flex items-center justify-center mb-2">
+								<h2 className="text-lg font-semibold text-black">
+									Professor
+								</h2>
+							</div>
+							<div className="bg-gray-200 p-4 w-full h-[50px] flex items-center justify-center mb-2">
+								<h2 className="text-lg font-semibold text-black">
+									Email ID
+								</h2>
+							</div>
+							<div className="bg-gray-200 p-4 rounded-r-lg w-full h-[50px] flex items-center justify-center mb-2">
+								<h2 className="text-lg font-semibold text-black">
+									Research Interests
+								</h2>
+							</div>
 						</div>
-						<div className="text-lg font-semibold w-[300px] text-center flex gap-4 justify-center p-2 h-full">
-							<span className="hover:underline hover:opacity-80 cursor-pointer flex justify-center items-center gap-2 h-fit">
-								<MailIcon />
-								abc@email.com
-							</span>
-						</div>
-						<div className="text-lg font-semibold w-[300px] text-justify text-wrap p-2 h-full">
-							<span>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Iusto dolores, optio doloribus
-								excepturi cum odit quis adipisci sed maiores
-								omnis tempore assumenda nobis amet quam fugiat
-								officiis iste ipsa qui?
-							</span>
-						</div>
-					</div>
-					<div className="flex flex-row gap-4 mb-3 items-start justify-center py-2 border px-5 rounded-lg hover:scale-[1.02] hover:shadow-2xl transition-all duration-200 ease-in-out">
-						<div className="text-lg font-semibold w-[300px] text-center p-2 h-full">
-							<span className="hover:underline hover:opacity-80 cursor-pointer">
-								abc xyz
-							</span>
-						</div>
-						<div className="text-lg font-semibold w-[300px] text-center flex gap-4 justify-center p-2 h-full">
-							<span className="hover:underline hover:opacity-80 cursor-pointer flex justify-center items-center gap-2 h-fit">
-								<MailIcon />
-								abc@email.com
-							</span>
-						</div>
-						<div className="text-lg font-semibold w-[300px] text-justify text-wrap p-2 h-full">
-							<span>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Iusto dolores, optio doloribus
-								excepturi cum odit quis adipisci sed maiores
-								omnis tempore assumenda nobis amet quam fugiat
-								officiis iste ipsa qui?
-							</span>
-						</div>
+
+						{/* Example Entries */}
+						{entries.map((entry, index) => (
+							<div
+								key={index}
+								className="flex flex-row justify-center col-span-3 my-2 w-full hover:scale-[1.02] transition-transform duration-200 hover:shadow-lg rounded-lg border border-white"
+							>
+								<div className="p-4 rounded-l-lg w-full h-[50px] flex items-start justify-center">
+									<h2 className="text-lg font-semibold text-white hover:underline hover:cursor-pointer">
+										{entry.name}
+									</h2>
+								</div>
+								<div className="p-4 w-full h-[50px] flex items-start justify-center">
+									<h2 className="text-lg font-semibold text-white hover:underline hover:cursor-pointer">
+										{entry.email}
+									</h2>
+								</div>
+								<div className="p-4 rounded-r-lg w-full max-h-[200px] flex items-start justify-center overflow-y-auto">
+									<h2 className="text-lg font-semibold text-white text-justify">
+										{entry.content}
+									</h2>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
