@@ -51,7 +51,10 @@ export default function Footer() {
 				</div>
 				<div className="w-full flex justify-center items-center py-10">
 					<span className="font-montesrrat text-7xl font-bold text-center">
-						MEA '24 - '25
+						MEA '{new Date().getFullYear().toString().slice(-2)} - '
+						{parseInt(
+							new Date().getFullYear().toString().slice(-2),
+						) + 1}
 					</span>
 				</div>
 			</div>
