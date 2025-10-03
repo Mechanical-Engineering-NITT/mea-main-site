@@ -11,6 +11,7 @@ import {
 	QuestionPapersSchema,
 	SemestersSchema,
 	InitiativesSchema,
+	ProjectsSchema,
 } from "./schemas";
 import { CMS_URL } from "@/utils/config";
 
@@ -164,5 +165,14 @@ export async function getInitiatives() {
 	const { data } = InitiativesSchema.safeParse(resJSON.docs);
 
 	// Returning data if valid
+	return data ?? [];
+}
+
+export async function getProjects() {
+	const response = await fetch(`${CMS_URL}/api/projects`);
+	const resJSON = await response.json();
+
+	const { data } = ProjectsSchema.safeParse(resJSON.docs);
+
 	return data ?? [];
 }
