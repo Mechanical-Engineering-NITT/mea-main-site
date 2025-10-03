@@ -6,10 +6,9 @@ import { getProjects } from "@actions/cms";
 
 export default async function Page() {
 	const entries = await getProjects();
-	console.log(entries);
 	return (
 		<>
-			<Navbar isUser={true} />
+			<Navbar isUser={false} />
 			<Projects entries={entries} />
 		</>
 	);

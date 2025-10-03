@@ -27,7 +27,6 @@
 	"dependencies": {
 		"@eslint/create-config": "^1.0.2",
 		"commitlint": "^19.2.2",
-		"lucide-react": "^0.544.0",
 		"typescript": "^5.4.5"
 	},
 	"lint-staged": {
