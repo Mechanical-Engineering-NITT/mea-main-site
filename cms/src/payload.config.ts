@@ -15,6 +15,7 @@ import { Misc } from "./collections/Misc";
 import { About } from "./globals/About";
 import { Highlights } from "./collections/Highlights";
 import { Initiatives } from "./collections/Initiatives";
+import { Projects } from "./collections/Projects";
 
 export default buildConfig({
 	admin: {
@@ -31,6 +32,7 @@ export default buildConfig({
 		Misc,
 		Highlights,
 		Initiatives,
+		Projects,
 	],
 	globals: [About],
 	typescript: {

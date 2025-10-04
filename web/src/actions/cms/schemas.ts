@@ -57,3 +57,12 @@ export const InitiativesSchema = z.array(
 		description: z.string(),
 	}),
 );
+
+export const ProjectsSchema = z.array(
+	z.object({
+		id: z.string(),
+		professor: z.string(),
+		emailID: z.string().email(),
+		researchInterests: z.string(),
+	}),
+);
