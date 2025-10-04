@@ -10,7 +10,7 @@ export const Projects: CollectionConfig = {
 		},
 		{
 			name: "emailID",
-			type: "text",
+			type: "email",
 			required: true,
 		},
 		{
