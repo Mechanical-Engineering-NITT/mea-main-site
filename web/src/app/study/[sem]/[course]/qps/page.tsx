@@ -11,9 +11,7 @@ export default async function Page({
 }) {
 	const user = await getUser();
 	if (!user)
-		redirect(
-			`/api/auth/signin?callbackUrl=/study/${params.sem}/${params.course}/qps`,
-		);
+		redirect(`/?callbackUrl=/study/${params.sem}/${params.course}/qps`);
 
 	const questionPapers = await getQuestionPapers(decodeURI(params.course));
 

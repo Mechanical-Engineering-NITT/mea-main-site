@@ -9,10 +9,7 @@ export default async function Page({
 	params: { sem: string; course: string };
 }) {
 	const user = await getUser();
-	if (!user)
-		redirect(
-			`/api/auth/signin?callbackUrl=/study/${params.sem}/${params.course}`,
-		);
+	if (!user) redirect(`/?callbackUrl=/study/${params.sem}/${params.course}`);
 
 	const items = [
 		{

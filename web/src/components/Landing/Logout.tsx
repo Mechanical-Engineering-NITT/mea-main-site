@@ -1,12 +1,13 @@
 "use client";
-
-import { signOut } from "next-auth/react";
+import { authClient } from "@/libs/auth-client";
 
 export default function Logout() {
 	return (
 		<div
 			onClick={() => {
-				signOut();
+				authClient.signOut().then(() => {
+					window.location.reload();
+				});
 			}}
 			className=" font-montesrrat mt-28 px-5 py-2 cursor-pointer bg-red-600 text-white font-semibold rounded-md"
 		>
