@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function Login() {
 	const searchParams = useSearchParams();
-	const callback = searchParams.get("callback") || "/";
+	const callback = searchParams.get("callbackUrl") || "/";
 	return (
 		<div
 			onClick={() => {
