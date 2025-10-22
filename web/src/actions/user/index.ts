@@ -1,8 +1,11 @@
 "use server";
 
-import { getServerSession } from "next-auth";
+import { auth } from "@/libs/auth";
+import { headers } from "next/headers";
 
 export async function getUser() {
-	const session = await getServerSession();
-	return session?.user;
+	const session = await auth.api.getSession({
+		headers: await headers(),
+	});
+	return session;
 }
