@@ -169,7 +169,7 @@ export async function getInitiatives() {
 }
 
 export async function getProjects() {
-	const response = await fetch(`${CMS_URL}/api/projects`);
+	const response = await fetch(`${CMS_URL}/api/projects?limit=100`);
 	const resJSON = await response.json();
 
 	const { data } = ProjectsSchema.safeParse(resJSON.docs);
