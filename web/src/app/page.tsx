@@ -12,6 +12,8 @@ export default async function Home() {
 	const highlights = await getHighlights();
 	const initiatives = await getInitiatives();
 
+	console.log(user);
+
 	return (
 		<div className="flex flex-col">
 			<Navbar isUser={user !== null} />

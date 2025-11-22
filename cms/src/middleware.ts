@@ -4,7 +4,7 @@ import { WEB_URL } from "./config";
 export const authenticateUser = async (req, res, next) => {
 	try {
 		const cookie = (req.headers.cookie as string) || "";
-		if (!cookie.includes("next-auth.session-token")) {
+		if (!cookie.includes("better-auth.session_token")) {
 			next();
 			return;
 		}
@@ -16,7 +16,7 @@ export const authenticateUser = async (req, res, next) => {
 		req.webClientUser = sessionResponse.data.user;
 		next();
 	} catch (error) {
-		console.error("Next Auth Authentication Error:", error);
+		console.error("Better Auth Authentication Error:", error);
 		next();
 	}
 };
