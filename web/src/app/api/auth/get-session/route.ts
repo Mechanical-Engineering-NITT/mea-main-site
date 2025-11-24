@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/libs/auth";
 
 export async function GET(req: NextRequest) {
-	console.log("CUSTOM GET-SESSION HIT!");
-
 	try {
 		const session = await auth.api.getSession({ headers: req.headers });
 
