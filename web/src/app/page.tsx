@@ -14,8 +14,8 @@ export default async function Home() {
 
 	return (
 		<div className="flex flex-col">
-			<Navbar isUser={user !== null} />
-			<Hero isUser={user !== null} />
+			<Navbar isUser={user !== undefined} />
+			<Hero isUser={user !== undefined} />
 			<Highlights content={highlights} />
 			<About />
 			<Initiatives initiatives={initiatives} />

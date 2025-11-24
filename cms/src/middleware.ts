@@ -13,7 +13,7 @@ export const authenticateUser = async (req, res, next) => {
 				Cookie: req.headers.cookie,
 			},
 		});
-		req.webClientUser = sessionResponse.data.session.user;
+		req.webClientUser = sessionResponse.data.user;
 		next();
 	} catch (error) {
 		console.error("Better Auth Authentication Error:", error);

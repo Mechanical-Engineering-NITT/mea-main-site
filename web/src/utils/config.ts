@@ -3,3 +3,4 @@ export const AUTH_CLIENT_ID = process.env.AUTH_CLIENT_ID!;
 export const CMS_URL = process.env.CMS_URL!;
 export const REDIRECT_URI = process.env.REDIRECT_URI!;
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH!;
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL!;

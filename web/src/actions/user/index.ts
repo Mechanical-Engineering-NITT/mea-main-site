@@ -7,5 +7,5 @@ export async function getUser() {
 	const session = await auth.api.getSession({
 		headers: await headers(),
 	});
-	return session;
+	return session?.user;
 }
