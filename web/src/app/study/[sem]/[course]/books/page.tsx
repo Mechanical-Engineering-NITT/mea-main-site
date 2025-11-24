@@ -11,9 +11,7 @@ export default async function Page({
 }) {
 	const user = await getUser();
 	if (!user)
-		redirect(
-			`/api/auth/signin?callbackUrl=/study/${params.sem}/${params.course}/books`,
-		);
+		redirect(`/?callbackUrl=/study/${params.sem}/${params.course}/books`);
 
 	const books = await getBooks(decodeURI(params.course));
 

@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 
 export default async function Page({ params }: { params: { sem: string } }) {
 	const user = await getUser();
-	if (!user) redirect(`/api/auth/signin?callbackUrl=/study/${params.sem}`);
+	if (!user) redirect(`/?callbackUrl=/study/${params.sem}`);
 
 	const courses = await getCourses(decodeURI(params.sem));
 
