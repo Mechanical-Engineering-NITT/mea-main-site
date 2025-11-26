@@ -3,7 +3,6 @@ import path from "path";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 
 import { Users } from "./collections/Users";
@@ -13,16 +12,18 @@ import { QuestionPapers } from "./collections/QuestionPapers";
 import { Books } from "./collections/Books";
 import { Misc } from "./collections/Misc";
 import { About } from "./globals/About";
+import { GoodToKnow } from "./globals/Good-to-know";
 import { Highlights } from "./collections/Highlights";
 import { Initiatives } from "./collections/Initiatives";
 import { Projects } from "./collections/Projects";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 export default buildConfig({
 	admin: {
 		user: Users.slug,
 		bundler: webpackBundler(),
 	},
-	editor: slateEditor({}),
+	editor: lexicalEditor({}),
 	collections: [
 		Users,
 		Semesters,
@@ -34,7 +35,7 @@ export default buildConfig({
 		Initiatives,
 		Projects,
 	],
-	globals: [About],
+	globals: [About, GoodToKnow],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
 	},

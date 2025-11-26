@@ -12,6 +12,7 @@ import {
 	SemestersSchema,
 	InitiativesSchema,
 	ProjectsSchema,
+	GoodToKnowSchema,
 } from "./schemas";
 import { CMS_URL } from "@/utils/config";
 
@@ -175,4 +176,13 @@ export async function getProjects() {
 	const { data } = ProjectsSchema.safeParse(resJSON.docs);
 
 	return data ?? [];
+}
+
+export async function getGoodToKnow() {
+	const response = await fetch(`${CMS_URL}/api/globals/good-to-know`);
+	const resJSON = await response.json();
+
+	const { data } = GoodToKnowSchema.safeParse(resJSON);
+
+	return data?.GoodToKnowContent_html ?? "";
 }
