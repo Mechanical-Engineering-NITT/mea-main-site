@@ -59,3 +59,7 @@ export const ProjectsSchema = z.array(
 		researchInterests: z.string(),
 	}),
 );
+
+export const GoodToKnowSchema = z.object({
+	GoodToKnowContent_html: z.string(),
+});
