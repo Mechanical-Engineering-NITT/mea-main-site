@@ -4,7 +4,6 @@ import { getUser } from "@actions/user";
 import { cookies } from "next/headers";
 import {
 	AboutSchema,
-	BooksSchema,
 	CoursesSchema,
 	HighlightsSchema,
 	MiscellaneousSchema,
@@ -84,30 +83,6 @@ export async function getQuestionPapers(courseCode: string) {
 
 	// Returning data if valid
 	return questionPapers ?? [];
-}
-
-export async function getBooks(courseCode: string) {
-	// Authorization
-	const user = await getUser();
-	if (!user) return [];
-
-	// Fetching data from CMS
-	const response = await fetch(
-		`${CMS_URL}/api/books?where[course.code][equals]=${courseCode}`,
-		{
-			headers: {
-				"Content-Type": "application/json",
-				Cookie: cookies().toString(),
-			},
-		},
-	);
-	const resJSON = await response.json();
-
-	// Validating data fetched from CMS
-	const { data: books } = BooksSchema.safeParse(resJSON.docs);
-
-	// Returning data if valid
-	return books ?? [];
 }
 
 export async function getMiscellaneous(courseCode: string) {

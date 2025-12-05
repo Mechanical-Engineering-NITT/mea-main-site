@@ -24,13 +24,6 @@ export const QuestionPapersSchema = z.array(
 	}),
 );
 
-export const BooksSchema = z.array(
-	z.object({
-		name: z.string(),
-		link: z.string(),
-	}),
-);
-
 export const MiscellaneousSchema = z.array(
 	z.object({
 		description: z.string(),

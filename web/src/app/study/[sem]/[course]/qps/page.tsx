@@ -3,6 +3,7 @@ import { getUser } from "@actions/user";
 import Navbar from "@components/Landing/NavBar";
 import Table from "@components/QuestionPapers/Table";
 import { redirect } from "next/navigation";
+import BackButton from "@components/Common/BackButton";
 
 export default async function Page({
 	params,
@@ -19,7 +20,14 @@ export default async function Page({
 		<>
 			<Navbar isUser={true} />
 			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col h-screen w-screen overflow-y-auto px-5 py-10">
-				<span className=" mt-16 font-outfit text-4xl font-bold mx-auto">{`${params.course}`}</span>
+				<div className="mt-16 w-full max-w-7xl mx-auto flex items-center relative">
+					<BackButton
+						href={`/study/${params.sem}/${params.course}`}
+					/>
+					<span className="font-outfit text-4xl font-bold mx-auto text-center">
+						{decodeURI(params.course)}
+					</span>
+				</div>
 				<Table questionPapers={questionPapers} />
 			</div>
 		</>

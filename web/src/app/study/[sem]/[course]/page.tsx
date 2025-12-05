@@ -2,6 +2,7 @@ import { getUser } from "@actions/user";
 import Navbar from "@components/Landing/NavBar";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import BackButton from "@components/Common/BackButton";
 
 export default async function Page({
 	params,
@@ -17,10 +18,6 @@ export default async function Page({
 			link: `/study/${params.sem}/${params.course}/qps`,
 		},
 		{
-			name: "Books",
-			link: `/study/${params.sem}/${params.course}/books`,
-		},
-		{
 			name: "Miscellaneous",
 			link: `/study/${params.sem}/${params.course}/misc`,
 		},
@@ -30,7 +27,12 @@ export default async function Page({
 		<>
 			<Navbar isUser={true} />
 			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5 py-10">
-				<span className=" mt-16 font-outfit text-4xl font-bold">{`${params.course}`}</span>
+				<div className="mt-16 w-full max-w-7xl mx-auto flex items-center relative justify-center">
+					<BackButton href={`/study/${params.sem}`} />
+					<span className="font-outfit text-4xl font-bold text-center">
+						{decodeURI(params.course)}
+					</span>
+				</div>
 				{items.map((item, i) => {
 					return (
 						<Link

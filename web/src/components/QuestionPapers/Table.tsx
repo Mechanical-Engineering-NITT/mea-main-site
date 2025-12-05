@@ -67,6 +67,14 @@ export default function Table({
 		getCoreRowModel: getCoreRowModel(),
 		getSortedRowModel: getSortedRowModel(),
 		enableSortingRemoval: false,
+		initialState: {
+			sorting: [
+				{
+					id: "year",
+					desc: true,
+				},
+			],
+		},
 	});
 
 	return (
