@@ -1,7 +1,6 @@
-FROM node:18.8-alpine as base
-ARG github_url
+FROM node:18.8-alpine AS base
 
-FROM base as builder
+FROM base AS builder
 WORKDIR /app
 COPY ./ ./
 RUN yarn install
@@ -9,7 +8,7 @@ RUN yarn build
 RUN rm -rf node_modules
 RUN yarn install --production
 
-FROM base as runner
+FROM base AS runner
 ENV NODE_ENV=production
 ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
 WORKDIR /app
