@@ -12,8 +12,11 @@ export default async function Page() {
 				<div className="text-4xl font-bold mb-10 mt-16 underline pointer-events-none font-montesrrat">
 					GOOD TO KNOW
 				</div>
-				<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center max-w-5xl font-montesrrat space-y-6 leading-10">
-					<div dangerouslySetInnerHTML={{ __html: content }} />
+				<div className="w-full px-20 space-y-6">
+					<div
+						className="lexical-content font-montesrrat"
+						dangerouslySetInnerHTML={{ __html: content }}
+					/>
 				</div>
 			</div>
 		</>
