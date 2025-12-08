@@ -18,6 +18,11 @@ const links = [
 		href: "/projects",
 		protected: false,
 	},
+	{
+		name: "Good to Know",
+		href: "/good-to-know",
+		protected: false,
+	},
 ];
 
 export default function Navbar({ isUser }: { isUser: boolean }) {
