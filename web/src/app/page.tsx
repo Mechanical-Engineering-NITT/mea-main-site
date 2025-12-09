@@ -5,7 +5,7 @@ import About from "@components/Landing/About";
 import Initiatives from "@components/Landing/Initiatives";
 import Footer from "@components/Landing/Footer";
 import Hero from "@components/Landing/Hero";
-import Navbar from "@components/Landing/NavBar";
+import Navigation from "@components/Landing/Navigation";
 
 export default async function Home() {
 	const user = await getUser();
@@ -13,13 +13,13 @@ export default async function Home() {
 	const initiatives = await getInitiatives();
 
 	return (
-		<div className="flex flex-col">
-			<Navbar isUser={user !== undefined} />
+		<>
+			<Navigation isUser={user !== undefined} />
 			<Hero isUser={user !== undefined} />
 			<Highlights content={highlights} />
 			<About />
 			<Initiatives initiatives={initiatives} />
 			<Footer />
-		</div>
+		</>
 	);
 }

@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--nav-color: rgba(0, 0, 0, 0);
+	--text-color: #ffffff;
+	--logo-bg: rgba(0, 0, 0, 0);
+	--button-bg: #ffffff;
+}
+
 #highlightSwiper {
 	--swiper-pagination-color: #3c97ab;
 	--swiper-pagination-bullet-inactive-color: #ffffff;
@@ -95,4 +102,13 @@
 	border: none;
 	border-top: 1px solid #ccc;
 	margin: 1.5em 0;
+}
+
+.sidebar {
+	inset: 0 auto 0 0;
+	box-shadow: 6px 0 30px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar div .title {
+	letter-spacing: 5%;
 }
