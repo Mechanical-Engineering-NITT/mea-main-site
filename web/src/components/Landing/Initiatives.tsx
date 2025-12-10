@@ -29,7 +29,7 @@ export default function Initiatives({
 						</h3>
 
 						<div className="overflow-y-auto">
-							<p className="text-gray-600 font-montesrrat">
+							<p className="text-gray-600 font-montserrat">
 								{initiative.description}
 							</p>
 						</div>

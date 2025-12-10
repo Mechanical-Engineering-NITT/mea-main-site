@@ -13,7 +13,7 @@ export default function Login() {
 					callbackURL: `${callback}`,
 				});
 			}}
-			className=" font-montesrrat mt-28 px-5 py-2 cursor-pointer bg-green-600 text-white font-semibold rounded-md"
+			className=" font-montserrat mt-28 px-5 py-2 cursor-pointer bg-green-600 text-white font-semibold rounded-md"
 		>
 			Login with DAuth
 		</div>

@@ -37,7 +37,7 @@ export default async function Page({
 					return (
 						<Link
 							href={item.link}
-							className=" flex flex-row justify-between items-center font-montesrrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
+							className=" flex flex-row justify-between items-center font-montserrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
 							key={i}
 						>
 							<span>{item.name}</span>

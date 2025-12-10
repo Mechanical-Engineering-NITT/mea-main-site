@@ -57,6 +57,7 @@ export const ProjectsSchema = z.array(
 		professor: z.string(),
 		emailID: z.string().email(),
 		researchInterests: z.string(),
+		laboratryOrLocation: z.string().nullable(),
 	}),
 );
 

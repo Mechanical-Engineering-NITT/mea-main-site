@@ -27,7 +27,7 @@ export default function Footer() {
 		<div className="flex flex-col">
 			<div className="bg-black text-white flex flex-col sm:flex-row">
 				<div className="flex flex-col w-full sm:w-1/3 justify-center items-center py-10 gap-5">
-					<span className="font-montesrrat font-bold text-2xl text-center">
+					<span className="font-montserrat font-bold text-2xl text-center">
 						FOLLOW US ON
 					</span>
 					<div className="flex flex-row gap-5">
@@ -50,7 +50,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="w-full flex justify-center items-center py-10">
-					<span className="font-montesrrat text-7xl font-bold text-center">
+					<span className="font-montserrat text-7xl font-bold text-center">
 						MEA '{new Date().getFullYear().toString().slice(-2)} - '
 						{parseInt(
 							new Date().getFullYear().toString().slice(-2),
@@ -58,7 +58,7 @@ export default function Footer() {
 					</span>
 				</div>
 			</div>
-			<div className="text-black font-semibold bg-gradient-to-r from-[#44bcde] via-[#B4E4F1] to-[#44bcde] justify-center flex flex-row w-full py-1 font-montesrrat">
+			<div className="text-black font-semibold bg-gradient-to-r from-[#44bcde] via-[#B4E4F1] to-[#44bcde] justify-center flex flex-row w-full py-1 font-montserrat">
 				Made with{" "}
 				<span className=" animate-pulse text-red-500 mx-1">♥</span> by{" "}
 				<Link

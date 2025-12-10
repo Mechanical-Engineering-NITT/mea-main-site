@@ -20,7 +20,7 @@ export default async function About() {
 			<span className="text-customOrange font-outfit font-bold text-7xl">
 				About Us
 			</span>
-			<div className="mt-5 w-[80%] p-10 border-2 border-black font-montesrrat overflow-y-auto text-justify max-h-[500px]">
+			<div className="mt-5 w-[80%] p-10 border-2 border-black font-montserrat overflow-y-auto text-justify max-h-[500px]">
 				{content}
 			</div>
 		</div>

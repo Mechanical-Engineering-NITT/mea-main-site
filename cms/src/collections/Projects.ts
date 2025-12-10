@@ -18,6 +18,10 @@ export const Projects: CollectionConfig = {
 			type: "textarea",
 			required: true,
 		},
+		{
+			name: "laboratryOrLocation",
+			type: "text",
+		},
 	],
 	access: {
 		create: ({ req }) => req.user,

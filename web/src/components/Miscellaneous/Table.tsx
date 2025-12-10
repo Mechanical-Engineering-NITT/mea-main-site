@@ -64,7 +64,7 @@ export default function Table({
 	return (
 		<div className="mt-2">
 			<table
-				className="grid border overflow-auto rounded-md relative font-montesrrat"
+				className="grid border overflow-auto rounded-md relative font-montserrat"
 				style={{
 					gridTemplateColumns: `repeat(${columns.length}, 1fr)`,
 				}}

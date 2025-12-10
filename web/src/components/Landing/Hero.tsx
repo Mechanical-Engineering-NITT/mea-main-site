@@ -15,10 +15,10 @@ export default async function Hero(props: { isUser: boolean }) {
 			</div>
 			<div className="absolute  text-white text-center h-screen w-screen flex flex-col justify-center items-center">
 				<span className="font-outfit text-7xl sm:text-8xl lg:text-9xl xl:text-9xl font-semibold">{`MEA '${new Date().getFullYear().toString().slice(-2)}`}</span>
-				<span className="mt-4 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
+				<span className="mt-4 font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
 					Mechanical Engineering Association
 				</span>
-				<span className="mt-2 font-montesrrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
+				<span className="mt-2 font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-normal">
 					NIT Trichy
 				</span>
 				{!props.isUser ? <Login /> : <Logout />}

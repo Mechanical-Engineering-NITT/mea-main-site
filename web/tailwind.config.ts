@@ -10,7 +10,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				outfit: ["Outfit", "sans-serif"],
-				montesrrat: ["Montserrat", "sans-serif"],
+				montserrat: ["Montserrat", "sans-serif"],
 			},
 			colors: {
 				customOrange: "#F26101",

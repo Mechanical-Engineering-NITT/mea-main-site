@@ -57,7 +57,7 @@ export default function Highlights({
 						</SwiperSlide>
 					))}
 				</Swiper>
-				<div className="w-full sm:w-1/2 sm:my-auto border-t-4 sm:border-t-0 sm:border-l-4 border-customBlue pt-5 sm:pl-5 sm:py-5 overflow-y-auto font-montesrrat">
+				<div className="w-full sm:w-1/2 sm:my-auto border-t-4 sm:border-t-0 sm:border-l-4 border-customBlue pt-5 sm:pl-5 sm:py-5 overflow-y-auto font-montserrat">
 					{content[activeIndex]?.description}
 				</div>
 			</div>

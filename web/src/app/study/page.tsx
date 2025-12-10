@@ -25,7 +25,7 @@ export default async function Page() {
 					return (
 						<Link
 							href={`/study/${sem.semester}`}
-							className=" flex flex-row justify-between font-montesrrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
+							className=" flex flex-row justify-between font-montserrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
 							key={i}
 						>
 							<span>Semester {sem.semester}</span>

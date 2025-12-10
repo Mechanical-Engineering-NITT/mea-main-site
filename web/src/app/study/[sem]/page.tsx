@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { sem: string } }) {
 					return (
 						<Link
 							href={`/study/${params.sem}/${course.code}`}
-							className=" flex flex-row justify-between items-center font-montesrrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
+							className=" flex flex-row justify-between items-center font-montserrat font-semibold w-full bg-white text-black mt-2 py-2 px-4 rounded-md"
 							key={i}
 						>
 							<span>{course.name}</span>
