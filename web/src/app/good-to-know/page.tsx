@@ -15,7 +15,12 @@ export default async function Page() {
 				<div className="w-full px-20 space-y-6">
 					<div
 						className="lexical-content font-montserrat"
-						dangerouslySetInnerHTML={{ __html: content }}
+						dangerouslySetInnerHTML={{
+							__html: content.replace(
+								/<a /g,
+								'<a target="_blank" rel="noopener noreferrer" ',
+							),
+						}}
 					/>
 				</div>
 			</div>

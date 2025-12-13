@@ -41,16 +41,19 @@
 	margin: 0.67em 0;
 	font-weight: 600;
 }
+
 .lexical-content h2 {
 	font-size: 1.5em;
 	margin: 0.75em 0;
 	font-weight: 600;
 }
+
 .lexical-content h3 {
 	font-size: 1.25em;
 	margin: 0.8em 0;
 	font-weight: 600;
 }
+
 .lexical-content h4,
 .lexical-content h5,
 .lexical-content h6 {
@@ -63,11 +66,13 @@
 	margin: 1em 0;
 	padding-left: 1.5em;
 }
+
 .lexical-content ol {
 	list-style-type: decimal;
 	margin: 1em 0;
 	padding-left: 1.5em;
 }
+
 .lexical-content li {
 	margin: 0.3em 0;
 }
@@ -86,6 +91,7 @@
 	overflow-x: auto;
 	border-radius: 4px;
 }
+
 .lexical-content code {
 	background: #eee;
 	padding: 2px 4px;
@@ -94,7 +100,7 @@
 }
 
 .lexical-content a {
-	color: #2563eb;
+	color: #fbbf24;
 	text-decoration: underline;
 }
 

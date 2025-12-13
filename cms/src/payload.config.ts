@@ -9,6 +9,7 @@ import { Users } from "./collections/Users";
 import { Semesters } from "./collections/Semesters";
 import { Courses } from "./collections/Courses";
 import { QuestionPapers } from "./collections/QuestionPapers";
+import { GoodToKnowFiles } from "./collections/GoodToKnowFiles";
 import { Books } from "./collections/Books";
 import { Misc } from "./collections/Misc";
 import { About } from "./globals/About";
@@ -29,6 +30,7 @@ export default buildConfig({
 		Semesters,
 		Courses,
 		QuestionPapers,
+		GoodToKnowFiles,
 		Books,
 		Misc,
 		Highlights,
