@@ -1,9 +1,9 @@
 import { getUser } from "@/actions/user";
 import { getSemesters } from "@actions/cms";
-import Navbar from "@components/Landing/NavBar";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import BackButton from "@components/Common/BackButton";
+import Navigation from "@components/Landing/Navigation";
 
 export default async function Page() {
 	const user = await getUser();
@@ -13,7 +13,7 @@ export default async function Page() {
 
 	return (
 		<>
-			<Navbar isUser={true} />
+			<Navigation isUser={true} />
 			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-5 py-10">
 				<div className="mt-16 w-full max-w-7xl mx-auto flex items-center relative justify-center">
 					<BackButton href={`/`} />

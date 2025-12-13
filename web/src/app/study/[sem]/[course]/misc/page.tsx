@@ -1,9 +1,9 @@
 import { getMiscellaneous } from "@actions/cms";
 import { getUser } from "@actions/user";
-import Navbar from "@components/Landing/NavBar";
 import Table from "@components/Miscellaneous/Table";
 import { redirect } from "next/navigation";
 import BackButton from "@components/Common/BackButton";
+import Navigation from "@components/Landing/Navigation";
 
 export default async function Page({
 	params,
@@ -18,7 +18,7 @@ export default async function Page({
 
 	return (
 		<>
-			<Navbar isUser={true} />
+			<Navigation isUser={true} />
 			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col h-screen w-screen overflow-y-auto px-5 py-10">
 				<div className="mt-16 w-full max-w-7xl mx-auto flex items-center relative">
 					<BackButton
