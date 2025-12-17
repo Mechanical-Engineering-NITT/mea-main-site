@@ -12,7 +12,9 @@ export default async function Page({
 }) {
 	const user = await getUser();
 	if (!user)
-		redirect(`/?callbackUrl=/study/${params.sem}/${params.course}/qps`);
+		redirect(
+			`/?callbackUrl=/study/core/${params.sem}/${params.course}/qps`,
+		);
 
 	const questionPapers = await getQuestionPapers(decodeURI(params.course));
 
@@ -22,7 +24,7 @@ export default async function Page({
 			<div className=" text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col h-screen w-screen overflow-y-auto px-5 py-10">
 				<div className="mt-16 w-full max-w-7xl mx-auto flex items-center relative">
 					<BackButton
-						href={`/study/${params.sem}/${params.course}`}
+						href={`/study/core/${params.sem}/${params.course}`}
 					/>
 					<span className="font-outfit text-4xl font-bold mx-auto text-center">
 						{decodeURI(params.course)}

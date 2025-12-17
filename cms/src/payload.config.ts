@@ -18,6 +18,10 @@ import { Highlights } from "./collections/Highlights";
 import { Initiatives } from "./collections/Initiatives";
 import { Projects } from "./collections/Projects";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { Departments } from "./collections/Departments";
+import { OEOrMinorQPs } from "./collections/OEOrMinorQPs";
+import { OEOrMinorMisc } from "./collections/OEOrMinorMisc";
+import { OEOrMinorCourses } from "./collections/OEOrMinorCourses";
 
 export default buildConfig({
 	admin: {
@@ -36,6 +40,10 @@ export default buildConfig({
 		Highlights,
 		Initiatives,
 		Projects,
+		Departments,
+		OEOrMinorCourses,
+		OEOrMinorQPs,
+		OEOrMinorMisc,
 	],
 	globals: [About, GoodToKnow],
 	typescript: {
@@ -54,7 +62,7 @@ export default buildConfig({
 	},
 	upload: {
 		limits: {
-			fileSize: 5000000, // 5MB, written in bytes
+			fileSize: 10000000, // 10MB, written in bytes
 		},
 	},
 	serverURL: process.env.PAYLOAD_URL,
