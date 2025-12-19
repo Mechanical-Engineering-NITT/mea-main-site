@@ -22,6 +22,10 @@ import { Departments } from "./collections/Departments";
 import { OEOrMinorQPs } from "./collections/OEOrMinorQPs";
 import { OEOrMinorMisc } from "./collections/OEOrMinorMisc";
 import { OEOrMinorCourses } from "./collections/OEOrMinorCourses";
+import { Proceed } from "./globals/Proceed";
+import { CareerCraft } from "./globals/Career-craft";
+import { CareerCraftFiles } from "./collections/CareerCraftFiles";
+import { ProceedFiles } from "./collections/ProceedFiles";
 
 export default buildConfig({
 	admin: {
@@ -35,6 +39,8 @@ export default buildConfig({
 		Courses,
 		QuestionPapers,
 		GoodToKnowFiles,
+		CareerCraftFiles,
+		ProceedFiles,
 		Books,
 		Misc,
 		Highlights,
@@ -45,7 +51,7 @@ export default buildConfig({
 		OEOrMinorQPs,
 		OEOrMinorMisc,
 	],
-	globals: [About, GoodToKnow],
+	globals: [About, GoodToKnow, CareerCraft, Proceed],
 	typescript: {
 		outputFile: path.resolve(__dirname, "payload-types.ts"),
 	},

@@ -16,7 +16,7 @@ export default function Navigation({ isUser }: { isUser: boolean }) {
 
 	useLayoutEffect(() => {
 		const handleResize = () => {
-			if (window.innerWidth >= 1024) {
+			if (window.innerWidth >= 1280) {
 				setIsOpen(false);
 			}
 		};
@@ -82,16 +82,26 @@ function Sidebar({
 			href: "/good-to-know",
 			protected: false,
 		},
+		{
+			name: "Career Craft",
+			href: "/career-craft",
+			protected: false,
+		},
+		{
+			name: "Proceed",
+			href: "/proceed",
+			protected: false,
+		},
 	];
 	return (
 		<>
 			<div
 				ref={overlayRef}
-				className="fixed inset-0 w-screen h-screen bg-black/40 opacity-0 pointer-events-none z-40 lg:hidden transition-opacity duration-300 ease-in-out"
+				className="fixed inset-0 w-screen h-screen bg-black/40 opacity-0 pointer-events-none z-40 xl:hidden transition-opacity duration-300 ease-in-out"
 				onClick={() => setIsOpen(false)}
 			></div>
 			<aside
-				className="flex flex-col fixed max-w-80 h-screen w-screen z-50 bg-gray-100 p-0 sidebar -translate-x-full transition-transform duration-300 ease-in-out lg:hidden lg:transform-none"
+				className="flex flex-col fixed max-w-80 h-screen w-screen z-50 bg-gray-100 p-0 sidebar -translate-x-full transition-transform duration-300 ease-in-out xl:hidden xl:transform-none"
 				ref={sideBarRef}
 			>
 				<div className="flex w-full h-[70px] items-center border-b border-gray-200">
@@ -106,7 +116,7 @@ function Sidebar({
 								className="logo"
 							/>
 						</div>
-						<div className="font-montesrrat font-semibold text-2xl title">
+						<div className="font-montserrat font-semibold text-2xl title">
 							MEA '25
 						</div>
 					</Link>
@@ -121,7 +131,7 @@ function Sidebar({
 						/>
 					</button>
 				</div>
-				<nav className="mt-[40px] w-full flex gap-[20px] justify-start flex-col p-0 font-montesrrat text-2xl font-medium text-gray-950">
+				<nav className="mt-[40px] w-full flex gap-[20px] justify-start flex-col p-0 font-montserrat text-2xl font-medium text-gray-950">
 					{links.map((link, i) => (
 						<div
 							className="flex justify-start items-center px-[25px] gap-[10px] h-[50px] cursor-pointer hover:opacity-80"
@@ -140,7 +150,7 @@ function Sidebar({
 						</div>
 					))}
 				</nav>
-				<div className="mt-auto mb-[84px] w-full text-center text-gray-600 font-montesrrat text-xs flex items-center justify-center gap-[5px]">
+				<div className="mt-auto mb-[84px] w-full text-center text-gray-600 font-montserrat text-xs flex items-center justify-center gap-[5px]">
 					{!isUser ? (
 						<>
 							<p>Not Logged in?</p>
@@ -187,11 +197,21 @@ function Navbar({
 			href: "/good-to-know",
 			protected: false,
 		},
+		{
+			name: "Career Craft",
+			href: "/career-craft",
+			protected: false,
+		},
+		{
+			name: "Proceed",
+			href: "/proceed",
+			protected: false,
+		},
 	];
 	return (
 		<header className="absolute h-[70px] xl:h-[80px] w-screen flex items-center justify-between px-10 top-0 z-40 rounded-b-[12px] shadow-md bg-transparent backdrop-blur">
 			<button
-				className="openBtn flex items-center justify-center shrink-0 lg:hidden"
+				className="openBtn flex items-center justify-center shrink-0 xl:hidden"
 				onClick={onOpenSidebar}
 			>
 				<Image
@@ -207,13 +227,13 @@ function Navbar({
 				<div className="logoBg bg-transparent rounded-full size-[70px] xl:size-[80px] flex items-center justify-center">
 					<Image src={mealogo} alt="MEA LOGO" className="logo" />
 				</div>
-				<div className="font-montesrrat font-semibold text-2xl title hidden md:flex text-white">
+				<div className="font-montserrat font-semibold text-2xl title hidden md:flex text-white">
 					MEA '25
 				</div>
 			</Link>
 
 			{links.map((link, i) => (
-				<div key={i} className="hidden lg:block">
+				<div key={i} className="hidden xl:block">
 					<div
 						onClick={() => {
 							if (link.protected && !isUser) {
@@ -224,7 +244,7 @@ function Navbar({
 								navigate.push(link.href);
 							}
 						}}
-						className="text-white cursor-pointer hover:underline transition-all duration-150 ease-in-out text-[24px] font-montesrrat font-semibold"
+						className="text-white cursor-pointer hover:underline transition-all duration-150 ease-in-out text-[24px] font-montserrat font-semibold"
 					>
 						{link.name}
 					</div>
