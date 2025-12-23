@@ -23,7 +23,7 @@ import { OEOrMinorQPs } from "./collections/OEOrMinorQPs";
 import { OEOrMinorMisc } from "./collections/OEOrMinorMisc";
 import { OEOrMinorCourses } from "./collections/OEOrMinorCourses";
 import { Proceed } from "./globals/Proceed";
-import { CareerCraft } from "./globals/Career-craft";
+import { CareerCraft } from "./globals/Career-Craft";
 import { CareerCraftFiles } from "./collections/CareerCraftFiles";
 import { ProceedFiles } from "./collections/ProceedFiles";
 
