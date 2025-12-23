@@ -12,6 +12,8 @@ import {
 	InitiativesSchema,
 	ProjectsSchema,
 	GoodToKnowSchema,
+	ProceedSchema,
+	CareerCraftSchema,
 	DepartmentsSchema,
 	OEOrMinorCoursesSchema,
 	OEOrMinorQuestionPapersSchema,
@@ -164,6 +166,24 @@ export async function getGoodToKnow() {
 	const { data } = GoodToKnowSchema.safeParse(resJSON);
 
 	return data?.GoodToKnowContent_html ?? "";
+}
+
+export async function getProceed() {
+	const response = await fetch(`${CMS_URL}/api/globals/proceed`);
+	const resJSON = await response.json();
+
+	const { data } = ProceedSchema.safeParse(resJSON);
+
+	return data?.ProceedContent_html ?? "";
+}
+
+export async function getCareerCraft() {
+	const response = await fetch(`${CMS_URL}/api/globals/career-craft`);
+	const resJSON = await response.json();
+
+	const { data } = CareerCraftSchema.safeParse(resJSON);
+
+	return data?.CareerCraftContent_html ?? "";
 }
 
 export async function getDepartments() {

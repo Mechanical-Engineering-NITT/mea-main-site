@@ -1,16 +1,16 @@
 import { getUser } from "@/actions/user";
-import { getGoodToKnow } from "@/actions/cms";
+import { getProceed } from "@/actions/cms";
 import Navigation from "@components/Landing/Navigation";
 
 export default async function Page() {
 	const user = await getUser();
-	const content = await getGoodToKnow();
+	const content = await getProceed();
 	return (
 		<>
 			<Navigation isUser={user !== undefined} />
 			<div className="text-white bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 flex flex-col items-center h-screen w-screen overflow-y-auto px-2 py-10">
 				<div className="text-4xl font-bold mb-10 mt-16 underline pointer-events-none font-montserrat">
-					GOOD TO KNOW
+					PROCEED
 				</div>
 				<div className="w-full px-12 lg:px-20 space-y-6">
 					<div

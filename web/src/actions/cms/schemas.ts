@@ -65,6 +65,14 @@ export const GoodToKnowSchema = z.object({
 	GoodToKnowContent_html: z.string(),
 });
 
+export const ProceedSchema = z.object({
+	ProceedContent_html: z.string(),
+});
+
+export const CareerCraftSchema = z.object({
+	CareerCraftContent_html: z.string(),
+});
+
 export const DepartmentsSchema = z.array(
 	z.object({
 		name: z.string(),
